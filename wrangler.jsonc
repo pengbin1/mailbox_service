@@ -1,0 +1,29 @@
+{
+  "name": "pokemon-mailbox-service",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-11",
+  "workers_dev": true,
+  "vars": {
+    "MAIL_DOMAIN": "",
+    "MAX_MESSAGE_BYTES": "1048576",
+    "MAX_MESSAGES_PER_MAILBOX": "50",
+    "PURGE_GRACE_HOURS": "48"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pokemon-mailbox",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "RAW_MAIL",
+      "bucket_name": "pokemon-mailbox-raw"
+    }
+  ],
+  "triggers": {
+    "crons": ["0 * * * *"]
+  }
+}
